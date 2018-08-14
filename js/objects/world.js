@@ -6,7 +6,7 @@ export class World {
     constructor() {
         // Создадим игрока
         this.player = new Player(window.innerWidth / 2, window.innerHeight / 2)
-        
+
     }
 
     // В зависисмости от нажатых клавиш изменяем среду
