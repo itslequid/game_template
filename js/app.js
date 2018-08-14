@@ -22,7 +22,17 @@ const renderer = PIXI.autoDetectRenderer(
 
 // Нажата ли кнопка
 const keys = {"w": false, "s": false, "a": false, "d": false};
-
+function setCanvasSize() {
+        const canvas = renderer.view;
+        canvas.width = window.innerWidth* 2;
+        canvas.height = window.innerHeight * 2;
+        canvas.style.width = window.innerWidth + 'px';
+        canvas.style.height = window.innerHeight + 'px';
+        renderer.resize(window.innerWidth, window.innerHeight);
+    }
+window.onresize = (ev) => {
+    setCanvasSize()
+}
 function animate() {
     // Позволяет рисовать каждый тик
     requestAnimationFrame(animate);
@@ -55,9 +65,10 @@ document.addEventListener('keyup', (ev) => {
 
 // Начинаем рисовать!
 animate();
-
 // Wait for document loaded
 window.onload = function () {
+
+
     // Достаём <div id="main"/> и суём туда canvas из renderer
     // View Page Source если не веришь
     document.getElementById("main").appendChild(renderer.view);
@@ -65,6 +76,9 @@ window.onload = function () {
     const canvas = renderer.view;
     canvas.width = logicalWidth * 2;
     canvas.height = logicalHeight * 2;
-    canvas.style.width = logicalWidth + 'px';
+    let screenW = window.innerWidth;
+    let screenH = window.innerHeight;
+    canvas.style.width = logicalWidth + 'px'
     canvas.style.height = logicalHeight + 'px';
+    setCanvasSize();
 };

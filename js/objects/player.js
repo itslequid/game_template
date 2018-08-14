@@ -5,7 +5,7 @@ export class Player {
     constructor(x, y) {
         this.x = x;
         this.y = y;
-        this.r = 10;
+        this.r = 15;
     }
 
     draw() {
@@ -20,18 +20,35 @@ export class Player {
     }
 
     go_left = () => {
-        this.x -= 1
+        if (this.x < 30) {
+            null
+        }else {
+            this.x -= 15
+        }
     };
 
     go_right = () => {
-        this.x += 1
+        if(this.x > window.innerWidth - this.r - 15) {
+            null
+        } else {
+            this.x += 15
+        }
     };
 
     go_up = () => {
-        this.y -= 1
+        if (this.y < 20) {
+            null
+        } else {
+            this.y -= 15
+        }
     };
 
     go_down = () => {
-        this.y += 1
+        if (this.y > window.innerHeight - this.r - 15) {
+            null
+        } else {
+            this.y += 15
+        }
+
     }
 }
