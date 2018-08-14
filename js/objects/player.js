@@ -11,7 +11,6 @@ export class Player {
     draw() {
         // http://pixijs.download/dev/docs/PIXI.Graphics.html
         const graphics = new PIXI.Graphics();
-
         graphics.beginFill(0xFFFFFF);
         graphics.drawCircle(this.x, this.y, this.r);
         graphics.endFill();
@@ -20,7 +19,7 @@ export class Player {
     }
 
     go_left = () => {
-        if (this.x < 30) {
+        if (this.x < 30 ) {
             null
         }else {
             this.x -= 15

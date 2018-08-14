@@ -1,6 +1,6 @@
 export class Info {
     constructor(playerX, playerY) {
-        this.text = `PlayerX: ${playerX}\nPlayerY: ${playerY}\nТворожок, не бей.\nНажми R чтобы сделать бабах(не совсем)`
+        this.text = `PlayerX: ${playerX}\nPlayerY: ${playerY}\nТворожок, не бей.`
     }
 
     draw() {

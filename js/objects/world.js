@@ -1,42 +1,41 @@
 import {Player} from "./player";
 import {Info} from "./info"
-import * as PIXI from 'pixi.js';
+import {Laser} from "./laser";
+
 
 export class World {
     constructor() {
         // Создадим игрока
-        this.player = new Player(window.innerWidth / 2, window.innerHeight / 2)
+        this.player = new Player(window.innerWidth / 2, window.innerHeight / 2);
 
+        // ToDo: Создать массив лазеров
+        this.las = []
     }
 
+
+
+    // ToDo: Метод click, которая принимает x, y
+    click = (x,y) => {
+        this.las.push(new Laser(this.player.x,this.player.y, x, y))
+    };
     // В зависисмости от нажатых клавиш изменяем среду
     move = (keys) => {
         // Для каждого ключа в объекте
         Object.keys(keys).map((key) => {
             // Если нажата кнопка
             if (keys[key]) {
-
                 // Взависимости от того какая кнопка
                 switch (key) {
                     case "a":
-
-                        window.onload;
                         this.player.go_left();
                         break;
                     case "d":
-                        window.onload;
                         this.player.go_right();
                         break;
                     case "s":
-                        window.onload;
                         this.player.go_down();
                         break;
                     case "w":
-                        window.onload;
-                        this.player.go_up();
-                        break;
-                    case "r":
-                        window.onload;
                         this.player.go_up();
                         break;
                 }
@@ -46,8 +45,7 @@ export class World {
     };
 
     get_items() {
-        return [this.player, new Info(this.player.x, this.player.y)]
-    }
-
-}
+        // ToDo: Возвращать массив лазеров
+        return [this.player, new Info(this.player.x, this.player.y),...this.las]
+        }}
 
